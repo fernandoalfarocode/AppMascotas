@@ -9,7 +9,7 @@
     android:layout_marginLeft="@dimen/activity_vertical_margin"
     android:layout_marginBottom="@dimen/activity_vertical_margin"
     android:layout_marginTop="20dp"
-    >
+    android:background="#01ffffff">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -31,14 +31,16 @@
             android:orientation="horizontal"
 
             >
-            <ImageView
-                android:layout_width="38dp"
+            <ImageButton
+                android:id="@+id/btnlike"
+                android:layout_width="40dp"
                 android:layout_marginLeft="10dp"
                 android:src="@drawable/dog_bone_50"
-                android:layout_height="38dp"/>
+                android:layout_height="40dp"
+                android:background="#07ffffff" />
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:layout_marginLeft="10dp"
@@ -46,9 +48,9 @@
 
                 <TextView
                     android:id="@+id/nombremascota"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="DARK VADER"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="CHIHUAHA"
                     android:textSize="20dp"
                     android:layout_marginTop="10dp"
                     android:textStyle="bold"
@@ -56,35 +58,24 @@
 
 
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginLeft="10dp"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
                 >
 
                 <TextView
-                    android:layout_gravity="right"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="5"
-                    android:textSize="20dp"
-                    android:layout_marginTop="10dp"
+                    android:id="@+id/cant_likes"
+                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textSize="25dp"
+                    android:text="0"
                     android:textStyle="bold"
-                    android:layout_marginLeft="100dp"
                     />
-
-
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginLeft="10dp"
-                >
                 <ImageView
-                    android:id="@+id/btnlike"
                     android:layout_width="38dp"
                     android:src="@drawable/dog_bone_48"
                     android:layout_height="38dp"/>
@@ -92,9 +83,12 @@
 
 
 
+            </LinearLayout>
+
+
+
 
             </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
 
 </android.support.v7.widget.CardView>

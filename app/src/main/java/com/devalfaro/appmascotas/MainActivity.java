@@ -74,8 +74,6 @@ public class MainActivity extends AppCompatActivity {
         return fragments;
     }
 
-
-
     private void setUpViewPager(){
         viewPager.setAdapter(new PageAdapter(getSupportFragmentManager(),agregarFragments()));
         tabLayout.setupWithViewPager(viewPager);

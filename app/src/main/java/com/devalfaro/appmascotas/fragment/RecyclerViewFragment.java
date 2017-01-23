@@ -13,57 +13,46 @@ import android.view.ViewGroup;
 import com.devalfaro.appmascotas.R;
 import com.devalfaro.appmascotas.adapter.Mascota_Adapter;
 import com.devalfaro.appmascotas.pojo.Mascotas;
+import com.devalfaro.appmascotas.presentador.IRecyclerViewFragmentPresenter;
+import com.devalfaro.appmascotas.presentador.RecyclerViewFragmentPresenter;
 
 import java.util.ArrayList;
-import java.util.zip.Inflater;
 
 /**
  * Created by Dev.Alfaro on 12/1/2017.
  */
-public class RecyclerViewFragment extends Fragment{
+public class RecyclerViewFragment extends Fragment implements IRecyclerViewFragmentView{
 
     ArrayList<Mascotas> mascotas;
     private RecyclerView listaMascotas;
-    public Mascota_Adapter adapter;
+    private IRecyclerViewFragmentPresenter presenter;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v  = inflater.inflate(R.layout.fragment_recyclerview,container,false);
-
         listaMascotas = (RecyclerView) v.findViewById(R.id.Recycler_view);
+        presenter = new RecyclerViewFragmentPresenter(this,getContext());
+        return v;
+    }
+
+
+    @Override
+    public void generarLinearLayoutVertical() {
         LinearLayoutManager llm = new LinearLayoutManager(getActivity());
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         GridLayoutManager glm = new GridLayoutManager(getActivity(),1);
-
         listaMascotas.setLayoutManager(glm);
-        inicializaListaContactos();
-        inicializarAdaptador();
-
-
-
-
-
-        return v;
-        //return super.onCreateView(inflater, container, savedInstanceState);
-    }
-    public void inicializaListaContactos(){
-        mascotas = new ArrayList<Mascotas>();
-
-        mascotas.add(new Mascotas("Boxer",R.drawable.boxer_dog_animal_15972));
-        mascotas.add(new Mascotas("Chihuaha",R.drawable.chihuahua_bone_dog_animal_15961));
-        mascotas.add(new Mascotas("Corgi",R.drawable.corgi_dog_animal_15971));
-        mascotas.add(new Mascotas("Haski",R.drawable.haski_dog_animal_15968));
-        mascotas.add(new Mascotas("Labrador",R.drawable.labrador_dog_animal_15967));
-        mascotas.add(new Mascotas("Pug",R.drawable.pug_dog_animal_15965));
-        mascotas.add(new Mascotas("Russel",R.drawable.russel_dog_animal_15954));
-
     }
 
-    public void inicializarAdaptador(){
-        adapter = new Mascota_Adapter(mascotas,getActivity());
+    @Override
+    public Mascota_Adapter crearAdaptador(ArrayList<Mascotas> mascotas) {
+        Mascota_Adapter adapter = new Mascota_Adapter(mascotas,getActivity());
+        return adapter;
+    }
+
+    @Override
+    public void inicializarAdaptadorRV(Mascota_Adapter adapter) {
         listaMascotas.setAdapter(adapter);
     }
-
-
 }

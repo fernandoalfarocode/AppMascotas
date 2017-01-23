@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
     <item android:id="@+id/contacto"
@@ -8,8 +9,14 @@
 
     <item android:title="Acerca de"
         android:id="@+id/about"
-        android:orderInCategory="101">
-
+        android:orderInCategory="100">
     </item>
+    <item android:id="@+id/recientes"
+        android:title="Recientes"
+        android:icon="@drawable/star_hotel_48"
+        app:showAsAction="always"
+        ></item>
+
+
 
 </menu>
